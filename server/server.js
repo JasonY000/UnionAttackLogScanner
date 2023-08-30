@@ -4,8 +4,7 @@ const cors = require('cors');
 const path = require('path');
 const fs = require('fs').promises;
 
-const folderPath =
-  '/Users/jasony000/Desktop/UnionAttackLogScanner/src/nikkeLog';
+const folderPath = path.join(path.dirname(__dirname), 'src', 'nikkeLog');
 const app = express();
 
 app.use(cors());
