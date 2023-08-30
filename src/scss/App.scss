@@ -1,0 +1,33 @@
+.App {
+  text-align: center;
+}
+
+.SubmitButton {
+  width: 100px;
+  height: 50px;
+}
+.recharts-responsive-container {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+}
+.recharts-responsive-container > p {
+  font-size: 20px;
+}
+.AttackRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+ul {
+  font-size: 20px;
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
