@@ -1,11 +1,12 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from '../src/components/App.jsx';
+
 require('dotenv').config();
 const app = require('../server/server.js');
 const request = require('supertest');
 
-xdescribe('App', () => {
+describe('App', () => {
   describe('Rendering', () => {
     it('renders the app component', () => {
       render(<App />);

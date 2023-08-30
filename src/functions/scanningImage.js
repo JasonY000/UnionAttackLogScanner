@@ -1,8 +1,8 @@
 import { clearUp } from './clearUp.js';
 const { createWorker, PSM } = require('tesseract.js');
-const worker = await createWorker();
 //the main function that scans the image.
 export async function scanImage(imgPathArr) {
+  const worker = await createWorker();
   await worker.loadLanguage('eng');
   await worker.initialize('eng');
   await worker.setParameters({
@@ -17,6 +17,5 @@ export async function scanImage(imgPathArr) {
     cleared.push(clearUp(text));
   }
   await worker.terminate();
-  console.log(cleared);
   return cleared;
 }

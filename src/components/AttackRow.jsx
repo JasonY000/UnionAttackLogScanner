@@ -1,7 +1,7 @@
 import React from 'react';
 const AttackRow = (props) => {
-  const liList = props.members.map((mem) => {
-    return <li>{mem}</li>;
+  const liList = props.members.map((mem, i) => {
+    return <li key={`${mem}+${i}`}>{mem}</li>;
   });
   return (
     <div>
