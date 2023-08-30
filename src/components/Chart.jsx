@@ -33,30 +33,32 @@ const Chart = (props) => {
   for (const member of attackTrack) {
     if (!whoAtt.has(member)) attAmount[0].push(member);
   }
-
+  console.log(damageDataArr);
   return (
-    <div className='recharts-responsive-container'>
-      <ResponsiveContainer width='100%' height='100%'>
-        <BarChart
-          width={1000}
-          height={300}
-          barGap={0}
-          data={damageDataArr}
-          margin={{
-            top: 15,
-            right: 20,
-            left: 20,
-            bottom: 40,
-          }}
-        >
-          <CartesianGrid strokeDasharray='3 3' />
-          <XAxis dataKey='name' fontSize={15} angle={60} textAnchor='start' />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey='damage' fill='#8884d8' />
-        </BarChart>
-      </ResponsiveContainer>
+    <div>
+      <div className='recharts-responsive-container'>
+        <ResponsiveContainer width='90%' height='90%'>
+          <BarChart
+            width={1000}
+            height={400}
+            barGap={0}
+            data={damageDataArr}
+            margin={{
+              top: 15,
+              right: 20,
+              left: 20,
+              bottom: 40,
+            }}
+          >
+            <CartesianGrid strokeDasharray='3 3' />
+            <XAxis dataKey='name' fontSize={18} angle={60} textAnchor='start' />
+            <YAxis />
+            <Tooltip />
+            <Legend layout='horizontal' verticalAlign='top' align='center' />
+            <Bar dataKey='damage' fill='#8884d8' />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
       <div className='AttackRow'>
         <AttackRow key={'Att0'} num={0} members={attAmount[0]} />
         <AttackRow key={'Att1'} num={1} members={attAmount[1]} />

@@ -7,27 +7,21 @@
   height: 50px;
 }
 .recharts-responsive-container {
-  width: 100%;
+  width: 100vw;
   height: 50vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 .recharts-responsive-container > p {
   font-size: 20px;
 }
 .AttackRow {
+  width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 ul {
   font-size: 20px;
-}
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

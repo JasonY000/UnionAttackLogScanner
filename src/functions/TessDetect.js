@@ -6,8 +6,9 @@ export async function startDetection() {
       return res.json();
     }
   );
-  // pass all the image name into scanImage function.
   const result = await scanImage(imageArr);
+
+  // pass all the image name into scanImage function.
   // clean up function to compile all the scanned and managed data.
   const track = {};
   result.forEach((arr) => {

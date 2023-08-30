@@ -6,12 +6,12 @@ function App() {
   const [data, setData] = useState({});
   async function send() {
     const data = await startDetection();
+    console.log(data);
     setData(data);
   }
-  console.log(Object.values(data).length < 1);
   return (
     <div className='App'>
-      <h1>ARGO damage tracker</h1>
+      <h1>Damage Log Scanner</h1>
       <button onClick={send} className='SubmitButton'>
         submit
       </button>
