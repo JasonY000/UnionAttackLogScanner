@@ -1,11 +1,11 @@
 import { members } from './memberList';
 // Function that aims to clean up tesseract.js image scan result
 export function clearUp(text) {
-  console.log(text);
+  //console.log(text);
   let regex = /[@]+/gm;
   // to remove large spaces from image scan result, the reason why I used @ is because there are some stings with real spaces, replaceAll and spliting at ' ' makes the array much longer.
   const textArr = text.replaceAll('\n', '@').toLowerCase().split(regex);
-  console.log(text.replaceAll('\n', '@').toLowerCase());
+  //console.log(text.replaceAll('\n', '@').toLowerCase());
   //console.log(textArr);
   let filtered = [];
   // the . filters out the health % number and the \ filters out tesseract.js scanning japanese name in my union.
