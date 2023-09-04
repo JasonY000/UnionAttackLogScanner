@@ -37,9 +37,10 @@ This application relise on <a href='https://github.com/naptha/tesseract.js/tree/
 | :--------------------: | :----: | :---- |
 | Language limitation | ⏳ | At the moment, this application exclusively supports English names. While it might be feasible to extend its functionality to other languages, further testing is necessary to ensure the reliability of tesseract.js in handling these variations.
 | Inconsistant names | ❌ | Tesseract.js could be inconsistant ocationally, for example the name 'mimi' could result in both 'mimi' or 'miimi' being scanned. **If you see any names in the members list missing or damage being off on this bar chart, you might need to check the result of tesseract.js scan result and see if the name is being miss read** more [Troubleshoot](#Troubleshoot) below on how to configure this problem.
+| Inconsistant damage | ❌ | As mentioned above, Tesseract.js could be inconsistant ocationally, some damage numbers might be off for exsample '1' could result in '7' or '5' => '3' <br>**So please take this into consideration when making a final dicision.** But the overall performance should be fairly accurate.
 
 - 🎉 = **Completed!**
 - ❌ = **Problem!**
 - ⏳ = **Problem with solution!**
 
-##Troubleshoot
+## Troubleshoot
