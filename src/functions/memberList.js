@@ -1,5 +1,7 @@
 //input all the members here, doesn't have to be alphabetically sorted
 export const members = new Set([
+  //input member names below 'name',
+  'exsample1',
   'aphofis',
   'bee',
   'chiefy',

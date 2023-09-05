@@ -1,5 +1,8 @@
 # UnionAttackLogScanner
 
+I started this as just a personal tool, but when I saw how helpful it could be, I thought, "Why not make it even easier for everyone else and save them from all that spreadsheet work?" So, here we are.<br>
+As this project is still early in its development, checkout the [development roadmap](#development) for future improvments and development for this project.
+
 ## Introduction
 
 UnionAttackLogScanner is tool that aims remove tediouse spreadsheet work for tracking union member damage in NIKKE. simple drag in screenshots of damage logs, and click submit, the application will take care of the rest and present you with a bar chart and notify you of any slackers.
@@ -32,7 +35,7 @@ Finially, you are ready to press submit on the website. Depending on how many im
 
 ## Limitation
 
-This application relise on <a href='https://github.com/naptha/tesseract.js/tree/master'>tesseract.js</a> OCR Engine, to scane each image to extract its words. Here is a list of constraints and deficiencies:
+This application relies on <a href='https://github.com/naptha/tesseract.js/tree/master'>tesseract.js</a> OCR Engine, to scane each image to extract its words. Here is a list of constraints and deficiencies:
 | constraints | Status | Notes |
 | :--------------------: | :----: | :---- |
 | Language limitation | ⏳ | At the moment, this application exclusively supports English names. While it might be feasible to extend its functionality to other languages, further testing is necessary to ensure the reliability of tesseract.js in handling these variations.
@@ -44,3 +47,38 @@ This application relise on <a href='https://github.com/naptha/tesseract.js/tree/
 - ⏳ = **Problem with solution!**
 
 ## Troubleshoot
+
+As mentioned above this application could be inconsistent, you may encounter a few difficulties when using this application:
+Here are some potentials issue with it's solutions. <br>
+(more user friendly solution will be added in the future, checkout the [development roadmap](#development) for more information.)
+
+After updating the memberList and scanning your images, if you spot any anomaly such as;
+
+- names missing on the bar charts, or members showing up on the 0 attack used list when they have attacked.
+- some members having lower damage numbers than expected.
+
+The could be due to <a href='https://github.com/naptha/tesseract.js/tree/master'>tesseract.js</a> scanning the name differently as mentioned above in [Limitation](#Limitation). Follow the below steps to troubleshoot.
+
+- Only include the image with the name that is experiencing problems.
+- go to clearUp.js and uncomment line 9, and click submit on the appilcation.
+- check the console in the browser and see what tesseract.js result is after scanning the image. is the name being miss-scanned?
+- add a else if statment under line 28;
+
+```bash
+else if(element === 'tesseract.js miss-scan result'){
+    filtered.push('correct name in memberList')
+}
+```
+
+## Development
+
+|                   Goal                   | Status | Notes                                                                    |
+| :--------------------------------------: | :----: | :----------------------------------------------------------------------- |
+|            Rearrange project             |   ⏳   | Move most functionaility to the back-end.                                |
+| Add and remove images in the application |   ⏳   | Exploring possible options.                                              |
+|     ease the troubleshooting process     |   ⏰   | The goal would be the user not having type a single line of code at all. |
+|           Frontend improvement           |   ⏰   |
+
+- 🎉 = **Completed!**
+- ⏳ = **In progress!**
+- ⏰ - **Waitlist!**

@@ -24,7 +24,9 @@ export function clearUp(text) {
         filtered.push(parseFloat(element.replace(/[, ]/g, '')));
       } else if (element.length > 5 && /^\d+$/.test(element)) {
         filtered.push(parseFloat(element));
-      } else if (element === 'miimi') {
+      }
+      //add else if under here
+      else if (element === 'miimi') {
         filtered.push('mimi');
       } else if (element === 'desneige') {
         filtered.push('desneign');
