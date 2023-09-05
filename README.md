@@ -5,7 +5,7 @@ As this project is still early in its development, checkout the [development roa
 
 ## Introduction
 
-UnionAttackLogScanner is tool that aims remove tediouse spreadsheet work for tracking union member damage in NIKKE. simple drag in screenshots of damage logs, and click submit, the application will take care of the rest and present you with a bar chart and notify you of any slackers.
+UnionAttackLogScanner is tool that aims remove tediouse spreadsheet work for tracking union member damage in specific game. simple drag in screenshots of damage logs, and click submit, the application will take care of the rest and present you with a bar chart and notify you of any slackers.
 <img src="./public/Screenshot 2023-09-04 at 4.27.10 PM.png" width="900px"/><br>
 
 ## Getting Started
