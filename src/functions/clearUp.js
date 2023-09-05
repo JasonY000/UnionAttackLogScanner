@@ -24,10 +24,10 @@ export function clearUp(text) {
         filtered.push(parseFloat(element.replace(/[, ]/g, '')));
       } else if (element.length > 5 && /^\d+$/.test(element)) {
         filtered.push(parseFloat(element));
-      } else if (element === 'miimi') {
-        filtered.push('mimi');
-      } else if (element === 'desneige') {
-        filtered.push('desneign');
+      }
+      // add else if here (below is an exsample)
+      else if (element === 'examplee 1') {
+        filtered.push('example 1');
       } else if (members.has(element)) {
         filtered.push(element);
       }

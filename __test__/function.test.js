@@ -8,6 +8,7 @@ describe('Testing functions', () => {
     'b@@0725@@7@@63,975,451@@x rebuild vulcan r@@h485@@vs@@2@@7@@240,312,073@@545@@x rebuild vulcan r@@yarly@@@@@113,501,090@@06.4@@x rebuild vulcan r@@yarly@@@@@144,036,643@@86.9@@x rebuild vulcan r@@mimi@@@@@264,124,524@@0.0@@x land eater@@yarly@@n7@@v722@@211,888,936@@x land eater@@235@';
   const textArr = [img1Text, img2Text, img3Text];
   it('ClearUp function should return fomatted array', async () => {
+    // testing the cleanUp function.
     const result = textArr.map((text) => clearUp(text));
     let isFormat = true;
     for (const arr of result) {
