@@ -12,7 +12,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: '/',
   },
 
   plugins: [
@@ -24,7 +24,7 @@ module.exports = {
 
   mode: process.env.NODE_ENV,
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.jsx', '.js', '.ts', '.tsx'],
   },
   module: {
     rules: [
@@ -41,7 +41,12 @@ module.exports = {
       },
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-        type: 'asset/resource'
+        type: 'asset/resource',
+      },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
       },
     ],
   },

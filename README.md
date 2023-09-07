@@ -74,7 +74,7 @@ else if(element === 'tesseract.js miss-scan result'){
 
 |                   Goal                   | Status | Notes                                                                    |
 | :--------------------------------------: | :----: | :----------------------------------------------------------------------- |
-|            Rearrange project             |   ⏳   | Move most functionaility to the back-end.                                |
+|          Typescript conversion           |   🎉   |                                                                          |
 | Add and remove images in the application |   ⏳   | Exploring possible options.                                              |
 |     ease the troubleshooting process     |   ⏰   | The goal would be the user not having type a single line of code at all. |
 |           Frontend improvement           |   ⏰   |

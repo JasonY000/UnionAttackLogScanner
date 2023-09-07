@@ -11,27 +11,36 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
-
-const Chart = (props) => {
+interface chartProp {
+  data: { [key: string]: MemberPerformance };
+}
+interface MemberPerformance {
+  attack: number;
+  damage: number;
+}
+interface DataForChart {
+  name: string;
+  damage: number;
+}
+const Chart: React.FC<chartProp> = ({ data }) => {
   // turning member list into array
-  const attackTrack = Array.from(members);
+  const attackTrack: string[] = Array.from(members);
   // data to feed to bar chart
-  let damageDataArr = [];
+  let damageDataArr: DataForChart[] = [];
   // members who attacked atleast once
-  let whoAtt = [];
+  let whoAtt: string[] = [];
   // track who attacked how many times
-  const attAmount = [[], [], [], []];
-  for (const [key, value] of Object.entries(props.data)) {
+  const attAmount: string[][] = [[], [], []];
+  for (const [key, value] of Object.entries(data)) {
     damageDataArr.push({ name: key, damage: value.damage });
-    attAmount[value.attack].push(key);
+    if (value.attack < 3) attAmount[value.attack].push(key);
     whoAtt.push(key);
-    delete attackTrack[key];
   }
   damageDataArr = damageDataArr.sort((a, b) => b.damage - a.damage);
   // find out who attacked 0 times
-  whoAtt = new Set(whoAtt);
+  const setWhoAtt: Set<string> = new Set(whoAtt);
   for (const member of attackTrack) {
-    if (!whoAtt.has(member)) attAmount[0].push(member);
+    if (!setWhoAtt.has(member)) attAmount[0].push(member);
   }
   console.log(damageDataArr);
   return (
