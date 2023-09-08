@@ -8,6 +8,7 @@ const Settings: React.FC<settingsProp> = ({ Close }) => {
   // const [members, setMembers] = useState<Set<string>>(new Set<string>());
   // function setMembersFunc(set: Set<string>) {
   //   setMembers(set);
+  //
   // }
 
   return (
