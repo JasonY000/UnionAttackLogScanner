@@ -1,31 +1,47 @@
 import '../scss/App.scss';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { chartProp } from '../Interface/ReactInterface';
 import { startDetection } from '../functions/TessDetect';
-import Chart from './Chart';
-interface chartProp {
-  [key: string]: {
-    attack: number;
-    damage: number;
-  };
-}
-interface MemberPerformance {
-  attack: number;
-  damage: number;
-}
+import Chart from './DataBoard';
+import Settings from './Settings';
+
 function App() {
   const [data, setData] = useState<chartProp>({});
+  const [configUp, setConfigUp] = useState<boolean>(true);
+  const [members, setMembers] = useState<Set<string>>(new Set<string>());
+  useEffect(() => {
+    const storedMembersJSON = localStorage.getItem('members');
+    if (storedMembersJSON) {
+      const storedMembersArray = JSON.parse(storedMembersJSON) as string[];
+      const membersSet = new Set(storedMembersArray);
+      //setMembers(membersSet);
+    }
+  }, []);
+  function setMembersFunc(set: Set<string>) {
+    setMembers(set);
+  }
   async function send() {
     const data: chartProp = await startDetection();
     console.log(data);
     setData(data);
   }
+  function setConfigUpFunc() {
+    setConfigUp(!configUp);
+    return;
+  }
   return (
     <div className='App'>
       <h1>Damage Log Scanner</h1>
-      <button onClick={send} className='SubmitButton'>
-        submit
-      </button>
+      <div>
+        <button onClick={send} className='SubmitButton'>
+          submit
+        </button>
+        <button onClick={setConfigUpFunc} className='SubmitButton'>
+          Config
+        </button>
+      </div>
       {Object.values(data).length >= 1 && <Chart data={data} />}
+      {configUp && <Settings Close={setConfigUpFunc} />}
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { members } from '../functions/memberList';
+import { DataForChart } from '../Interface/ReactInterface';
 import AttackRow from './AttackRow';
 import {
   BarChart,
@@ -12,15 +13,12 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 interface chartProp {
-  data: { [key: string]: MemberPerformance };
-}
-interface MemberPerformance {
-  attack: number;
-  damage: number;
-}
-interface DataForChart {
-  name: string;
-  damage: number;
+  data: {
+    [key: string]: {
+      attack: number;
+      damage: number;
+    };
+  };
 }
 const Chart: React.FC<chartProp> = ({ data }) => {
   // turning member list into array

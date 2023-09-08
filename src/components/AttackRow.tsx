@@ -1,8 +1,5 @@
 import React from 'react';
-interface RowProp {
-  num: number;
-  members: string[];
-}
+import { RowProp } from '../Interface/ReactInterface';
 const AttackRow: React.FC<RowProp> = ({ num, members }) => {
   const liList = members.map((mem: string, i?: number) => {
     return <li key={`${mem}+${i}`}>{mem}</li>;
