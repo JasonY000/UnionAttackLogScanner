@@ -41,4 +41,32 @@
     display: flex;
     justify-content: space-around;
   }
+  @media (max-width: 900px) {
+    .mainDiv {
+      flex-direction: column;
+    }
+  }
+}
+.configRow {
+  width: 300px;
+  //   min-width: 300px;
+  //   max-width: 300px;
+}
+.configMember {
+  div {
+    display: flex;
+    justify-content: space-between;
+    input {
+      width: 200px;
+    }
+  }
+  ul {
+    padding: 0;
+    max-height: 200px;
+    overflow-y: scroll;
+    div {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
 }

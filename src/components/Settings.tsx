@@ -1,14 +1,14 @@
 import '../scss/App.scss';
 import React, { useState, useEffect, useRef } from 'react';
-import AddMemeberComp from './ConfigAddmember';
+import AddMemeberComp from './ConfigMember';
 interface settingsProp {
   Close: () => void;
 }
 const Settings: React.FC<settingsProp> = ({ Close }) => {
-  const [members, setMembers] = useState<Set<string>>(new Set<string>());
-  function setMembersFunc(set: Set<string>) {
-    setMembers(set);
-  }
+  // const [members, setMembers] = useState<Set<string>>(new Set<string>());
+  // function setMembersFunc(set: Set<string>) {
+  //   setMembers(set);
+  // }
 
   return (
     <div>
@@ -19,7 +19,7 @@ const Settings: React.FC<settingsProp> = ({ Close }) => {
           <button onClick={Close}>X</button>
         </div>
         <div className='mainDiv'>
-          <AddMemeberComp members={members} setMembers={setMembersFunc} />
+          <AddMemeberComp />
           <div>
             <input placeholder='name'></input>
             <button>add</button>

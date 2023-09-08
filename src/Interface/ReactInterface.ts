@@ -17,7 +17,7 @@ export interface DataForChart {
   damage: number;
 }
 
-export interface AddMemberProp {
-  members: Set<string>;
-  setMembers: (newSet: Set<string>) => void;
-}
+// export interface AddMemberProp {
+//   members: Set<string>;
+//   setMembers: (newSet: Set<string>) => void;
+// }
