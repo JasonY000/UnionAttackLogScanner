@@ -16,10 +16,4 @@
     "noEmit": false,
     "jsx": "react-jsx"
   }
-  // "exclude": [
-  //   "./__test__/**/*",
-  //   "./jest.setup.js",
-  //   "./jest.config.js",
-  //   "./server/*"
-  // ]
 }
