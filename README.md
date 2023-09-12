@@ -5,7 +5,7 @@ As this project is still early in its development, checkout the [development roa
 
 ## Introduction
 
-UnionAttackLogScanner is tool that aims remove tediouse spreadsheet work for tracking union member damage in specific game. simple drag in screenshots of damage logs, and click submit, the application will take care of the rest and present you with a bar chart and notify you of any slackers.
+UnionAttackLogScanner is tool that aims remove tediouse spreadsheet work for tracking union member damage in a specific game. simple drag in screenshots of damage logs, and click submit, the application will take care of the rest and present you with a bar chart and notify you of any slackers.
 <img src="./public/Screenshot 2023-09-04 at 4.27.10 PM.png" width="900px"/><br>
 
 ## Getting Started
@@ -75,7 +75,9 @@ else if(element === 'tesseract.js miss-scan result'){
 |                   Goal                   | Status | Notes                                                                    |
 | :--------------------------------------: | :----: | :----------------------------------------------------------------------- |
 |          Typescript conversion           |   🎉   |                                                                          |
-| Add and remove images in the application |   ⏳   | Exploring possible options.                                              |
+|       create a member list on app        |   🎉   |                                                                          |
+| Add and remove images in the application |   🎉   | ~~Exploring possible options.~~ **solution found!**                      |
+|    move scanning function to backend     |   ⏳   |                                                                          |
 |     ease the troubleshooting process     |   ⏰   | The goal would be the user not having type a single line of code at all. |
 |           Frontend improvement           |   ⏰   |
 
