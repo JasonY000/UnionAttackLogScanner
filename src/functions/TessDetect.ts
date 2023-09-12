@@ -7,11 +7,9 @@ export async function startDetection(): Promise<{
   [key: string]: MemberPerformance;
 }> {
   //fetch all the image name in nikkeLog file.
-  const imageArr = await fetch('http://localhost:3000/api/images').then(
-    (res) => {
-      return res.json();
-    }
-  );
+  const imageArr = await fetch('http://localhost:3000/images').then((res) => {
+    return res.json();
+  });
   const result = await scanImage(imageArr);
 
   // pass all the image name into scanImage function.
