@@ -1,9 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 
-const DirController = {};
+const dirController = {};
 
-DirController.create = (req, res, next) => {
+dirController.create = (req, res, next) => {
   try {
     const { userID } = req.body;
     const dir = path.join(__dirname, `../images/${userID}`);
@@ -17,27 +17,26 @@ DirController.create = (req, res, next) => {
     });
   }
 };
-DirController.move = async (req, res, next) => {
+dirController.move = async (req, res, next) => {
   try {
   } catch (err) {}
 };
 
-DirController.remove = async (req, res, next) => {
+dirController.remove = async (req, res, next) => {
   try {
     const directory = path.join(__dirname, `../images/temp`);
     const files = await fs.promises.readdir(directory);
-
     for (const file of files) {
-      console.log('removing', file);
-      //await fs.promises.unlink(path.join(directory, file));
+      //console.log('removing', file);
+      await fs.promises.unlink(path.join(directory, file));
     }
     next();
   } catch (err) {
     next({
       log: 'error when removing img',
       status: 500,
-      message: { err },
+      message: { err: err },
     });
   }
 };
-module.exports = DirController;
+module.exports = dirController;

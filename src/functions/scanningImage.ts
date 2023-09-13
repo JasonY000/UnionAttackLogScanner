@@ -1,5 +1,6 @@
 import { clearUp } from './clearUp';
 const { createWorker, PSM } = require('tesseract.js');
+
 //the main function that scans the image.
 export async function scanImage(imgPathArr: any[]): Promise<any[]> {
   const worker = await createWorker();
@@ -13,7 +14,8 @@ export async function scanImage(imgPathArr: any[]): Promise<any[]> {
   for (let i = 0; i < imgPathArr.length; i++) {
     const {
       data: { text },
-    } = await worker.recognize(require(`../nikkeLog/${imgPathArr[i]}`));
+      //`../nikkeLog/${imgPathArr[i]}`
+    } = await worker.recognize(require('../nikkeLog/exampleImage.jpg'));
     const cleanedArr: any[] = clearUp(text);
     cleared.push(cleanedArr);
   }

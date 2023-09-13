@@ -3,7 +3,8 @@ const fs = require('fs');
 const path = require('path');
 const router = express.Router();
 
-const DirController = require('../controller/createDirController');
+const dirController = require('../controller/createDirController');
+const scanController = require('../controller/scanController');
 const multer = require('multer');
 
 const storage = multer.diskStorage({
@@ -17,7 +18,7 @@ const storage = multer.diskStorage({
   destination: `./server/images/temp`,
   filename: (req, file, cb) => {
     // Customize the filename if needed Date.now() + '-' +
-    cb(null, new Date() + '-' + file.originalname);
+    cb(null, file.originalname);
   },
 });
 const upload = multer({ storage });
@@ -25,10 +26,11 @@ const upload = multer({ storage });
 router.post(
   '/upload',
   upload.array('img', 20),
-  DirController.remove,
+  scanController.configScan,
+  dirController.remove,
   (req, res) => {
     console.log(req.files, req.body);
-    return res.status(200).json('hello');
+    return res.status(200).json(res.locals.result);
   }
 );
 
