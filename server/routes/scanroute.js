@@ -5,6 +5,7 @@ const router = express.Router();
 
 const dirController = require('../controller/createDirController');
 const scanController = require('../controller/scanController');
+const cleanUpController = require('../controller/cleanUpController');
 const multer = require('multer');
 
 const storage = multer.diskStorage({
@@ -29,8 +30,7 @@ router.post(
   scanController.configScan,
   dirController.remove,
   (req, res) => {
-    console.log(req.files, req.body);
-    return res.status(200).json(res.locals.result);
+    return res.status(200).json([res.locals.result, res.locals.originScan]);
   }
 );
 
