@@ -1,6 +1,7 @@
 import '../scss/App.scss';
 import React, { useState, useEffect, useRef } from 'react';
 import AddMemeberComp from './ConfigMember';
+import ConfigMemberList from './ConfigStart';
 interface settingsProp {
   Close: () => void;
 }
@@ -21,10 +22,8 @@ const Settings: React.FC<settingsProp> = ({ Close }) => {
         </div>
         <div className='mainDiv'>
           <AddMemeberComp />
-          <div>
-            <input placeholder='name'></input>
-            <button>add</button>
-          </div>
+          <ConfigMemberList />
+          <div></div>
         </div>
       </div>
     </div>

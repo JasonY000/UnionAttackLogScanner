@@ -52,6 +52,14 @@
   //   min-width: 300px;
   //   max-width: 300px;
 }
+.configRow2 {
+  width: 500px;
+}
+.liBtnPad {
+  button {
+    margin-right: 10px;
+  }
+}
 .configMember {
   div {
     display: flex;
