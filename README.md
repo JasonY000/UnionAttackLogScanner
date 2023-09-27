@@ -77,8 +77,8 @@ else if(element === 'tesseract.js miss-scan result'){
 |          Typescript conversion           |   🎉   |                                                                          |
 |       create a member list on app        |   🎉   |                                                                          |
 | Add and remove images in the application |   🎉   | ~~Exploring possible options.~~ **solution found!**                      |
-|    move scanning function to backend     |   ⏳   |                                                                          |
-|     ease the troubleshooting process     |   ⏰   | The goal would be the user not having type a single line of code at all. |
+|    move scanning function to backend     |   🎉   |                                                                          |
+|     ease the troubleshooting process     |   ⏳   | Planning stage |
 |           Frontend improvement           |   ⏰   |
 
 - 🎉 = **Completed!**
