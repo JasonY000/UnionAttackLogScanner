@@ -48,6 +48,7 @@ This application relies on <a href='https://github.com/naptha/tesseract.js/tree/
 
 ## Troubleshoot
 
+**New Functionaility currently under development! No code will have to be edited!**<br>
 As mentioned above this application could be inconsistent, you may encounter a few difficulties when using this application:
 Here are some potentials issue with it's solutions. <br>
 (more user friendly solution will be added in the future, checkout the [development roadmap](#development) for more information.)
@@ -77,8 +78,8 @@ else if(element === 'tesseract.js miss-scan result'){
 |          Typescript conversion           |   🎉   |                                                                          |
 |       create a member list on app        |   🎉   |                                                                          |
 | Add and remove images in the application |   🎉   | ~~Exploring possible options.~~ **solution found!**                      |
-|    move scanning function to backend     |   ⏳   |                                                                          |
-|     ease the troubleshooting process     |   ⏰   | The goal would be the user not having type a single line of code at all. |
+|    move scanning function to backend     |   🎉   |                                                                          |
+|     ease the troubleshooting process     |   ⏳   | Planning stage |
 |           Frontend improvement           |   ⏰   |
 
 - 🎉 = **Completed!**
