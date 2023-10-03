@@ -1,8 +1,12 @@
 import '../scss/App.scss';
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import axios from 'axios';
+import { ConfigStart } from '../Interface/ReactInterface';
 
-const ConfigMemberList = () => {
+const ConfigMemberList: React.FC<ConfigStart> = ({
+  setMembersFunc,
+  setDataFunc,
+}) => {
   const [file, setFile] = useState<File[] | null>(null);
   const [resData, setResData] = useState<[][]>([]);
 
@@ -17,23 +21,30 @@ const ConfigMemberList = () => {
     axios
       .post('http://localhost:3000/scan/upload', formData)
       .then((res) => {
+        setDataFunc(res.data[1][0]);
         setResData(res.data);
       })
       .catch((err) => console.log(err));
   };
 
-  const add = (event: any) => {
-    const target = event.target.parentElement.id;
+  const add = (target: string) => {
     console.log(target);
+    setMembersFunc(target, target);
   };
-  const changeAdd = () => {
+
+  const changeAdd = (target: string) => {
     console.log('changeAdd');
+    const result = prompt('Please enter corrected name.');
+    console.log(result);
+    setMembersFunc(target, result);
   };
+
   return (
     <div className='configMember configRow2'>
       <div className=''>
         <input
           type='file'
+          accept='image/png, image/jpeg'
           onChange={(e) => {
             if (e.target.files) setFile(Array.from(e.target.files));
           }}
@@ -44,13 +55,12 @@ const ConfigMemberList = () => {
       <ul>
         {resData[0]?.map((name) => {
           return (
-            <li>
-              <div key={name} id={`${name}`}>
+            <li key={name}>
+              <div id={`${name}`}>
                 <div className='liBtnPad'>
-                  <button onClick={add}>add </button>
-                  <button onClick={changeAdd}>Change & Add </button>
+                  <button onClick={() => add(name)}>add </button>
+                  <button onClick={() => changeAdd(name)}>Change & Add </button>
                 </div>
-
                 {`${name}`}
               </div>
             </li>

@@ -15,7 +15,7 @@ export async function scanImage(imgPathArr: any[]): Promise<any[]> {
     const {
       data: { text },
       //`../nikkeLog/${imgPathArr[i]}`
-    } = await worker.recognize(require('../nikkeLog/exampleImage.jpg'));
+    } = await worker.recognize(require(`../nikkeLog/${imgPathArr[i]}`));
     const cleanedArr: any[] = clearUp(text);
     cleared.push(cleanedArr);
   }

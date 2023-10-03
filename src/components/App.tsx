@@ -8,18 +8,7 @@ import Settings from './Settings';
 function App() {
   const [data, setData] = useState<chartProp>({});
   const [configUp, setConfigUp] = useState<boolean>(true);
-  const [members, setMembers] = useState<Set<string>>(new Set<string>());
-  useEffect(() => {
-    const storedMembersJSON = localStorage.getItem('members');
-    if (storedMembersJSON) {
-      const storedMembersArray = JSON.parse(storedMembersJSON) as string[];
-      const membersSet = new Set(storedMembersArray);
-      //setMembers(membersSet);
-    }
-  }, []);
-  function setMembersFunc(set: Set<string>) {
-    setMembers(set);
-  }
+
   async function send() {
     const data: chartProp = await startDetection();
     console.log(data);

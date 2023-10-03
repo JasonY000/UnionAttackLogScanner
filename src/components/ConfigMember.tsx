@@ -1,59 +1,43 @@
 import '../scss/App.scss';
-// import { AddMemberProp } from '../Interface/ReactInterface';
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
+import { MemberContext } from './Settings';
+import { ConfigMember } from '../Interface/ReactInterface';
 
-const AddMemeberComp = () => {
-  const [members, setMembers] = useState<string[]>([]);
+// Define the type for members
+type MemberType = Record<string, string>;
+
+const AddMemberComp: React.FC<ConfigMember> = ({ setMembersFunc }) => {
+  // Use useContext with the specified type
+  const members = useContext<MemberType>(MemberContext);
+  const [list, setList] = useState<JSX.Element[]>([]);
+
   const inputName = useRef<HTMLInputElement | null>(null);
-  useEffect(() => {
-    const storedMembersJSON = localStorage.getItem('members');
-    if (storedMembersJSON) {
-      const storedMembersArray = JSON.parse(storedMembersJSON) as string[];
-      setMembers(storedMembersArray);
-    }
-  }, []);
 
-  function addMember() {
-    const newSet = new Set(members);
-    if (inputName.current && inputName.current.value !== '') {
-      if (!newSet.has(inputName.current.value)) {
-        newSet.add(inputName.current.value);
-        setMembers(Array.from(newSet));
-        inputName.current.value = '';
-        //localStorage.setItem('members', JSON.stringify(newSet));
-      }
-    }
+  useEffect(() => {
+    console.log('useeffect', members);
+    const elements = Object.entries(members).map(([key, val]) => {
+      let str = key;
+      if (key !== val) str += ` => ${val}`;
+      return (
+        <div key={`${key}selected`}>
+          {str} <button onClick={() => clickDelete(key)}>x</button>
+        </div>
+      );
+    });
+    setList(elements);
+  }, [members]);
+
+  function clickDelete(keyToDelete: string) {
+    const newList = { ...members };
+    delete newList[keyToDelete];
+    setMembersFunc(newList);
   }
-  function clickDelete(event: any) {
-    const target = event.target.parentElement.id;
-    const newSet = new Set(members);
-    newSet.delete(target);
-    setMembers(Array.from(newSet));
-    //localStorage.setItem('members', JSON.stringify(Array.from(newSet)));
-  }
-  function save() {
-    const sort = [...members].sort();
-    localStorage.setItem('members', JSON.stringify(sort));
-  }
+
   return (
     <div className='configMember configRow'>
-      <div className=''>
-        <input placeholder='name' ref={inputName}></input>
-        <button onClick={addMember}>add</button>
-        <button onClick={save}>save</button>
-        {/* <button onClick={saveMember}>save</button> */}
-      </div>
-      <ul>
-        {Array.from(members).map((name) => {
-          return (
-            <div key={name} id={`${name}`}>
-              {`${name}`} <button onClick={clickDelete}>x </button>
-            </div>
-          );
-        })}
-      </ul>
+      <ul>{list}</ul>
     </div>
   );
 };
 
-export default AddMemeberComp;
+export default AddMemberComp;
