@@ -48,6 +48,7 @@ This application relies on <a href='https://github.com/naptha/tesseract.js/tree/
 
 ## Troubleshoot
 
+** New Functionaility currently under development! No code will have to be edited! **
 As mentioned above this application could be inconsistent, you may encounter a few difficulties when using this application:
 Here are some potentials issue with it's solutions. <br>
 (more user friendly solution will be added in the future, checkout the [development roadmap](#development) for more information.)
