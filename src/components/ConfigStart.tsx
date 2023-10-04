@@ -8,7 +8,7 @@ const ConfigMemberList: React.FC<ConfigStart> = ({
   setDataFunc,
 }) => {
   const [file, setFile] = useState<File[] | null>(null);
-  const [resData, setResData] = useState<[][]>([]);
+  const [resData, setResData] = useState<string[][]>([]);
 
   const sendConfig = () => {
     if (!file) {
@@ -21,7 +21,8 @@ const ConfigMemberList: React.FC<ConfigStart> = ({
     axios
       .post('http://localhost:3000/scan/upload', formData)
       .then((res) => {
-        setDataFunc(res.data[1][0]);
+        console.log(res.data);
+        setDataFunc(res.data[1]);
         setResData(res.data);
       })
       .catch((err) => console.log(err));
@@ -30,6 +31,8 @@ const ConfigMemberList: React.FC<ConfigStart> = ({
   const add = (target: string) => {
     console.log(target);
     setMembersFunc(target, target);
+    console.log(resData[0]);
+    removeAfter(target);
   };
 
   const changeAdd = (target: string) => {
@@ -37,11 +40,16 @@ const ConfigMemberList: React.FC<ConfigStart> = ({
     const result = prompt('Please enter corrected name.');
     console.log(result);
     setMembersFunc(target, result);
+    removeAfter(target);
   };
-
+  const removeAfter = (target: string) => {
+    const set = new Set(resData[0]);
+    set.delete(target);
+    setResData([Array.from(set), resData[1]]);
+  };
   return (
     <div className='configMember configRow2'>
-      <div className=''>
+      <div className='imgSubDiv'>
         <input
           type='file'
           accept='image/png, image/jpeg'
@@ -52,17 +60,17 @@ const ConfigMemberList: React.FC<ConfigStart> = ({
         />
         <input type='submit' onClick={sendConfig}></input>
       </div>
-      <ul>
+      <ul className='pickMember'>
         {resData[0]?.map((name) => {
           return (
             <li key={name}>
-              <div id={`${name}`}>
-                <div className='liBtnPad'>
-                  <button onClick={() => add(name)}>add </button>
-                  <button onClick={() => changeAdd(name)}>Change & Add </button>
-                </div>
-                {`${name}`}
+              {/* <div id={`${name}`}> */}
+              <div className='liBtnPad'>
+                <button onClick={() => add(name)}>add </button>
+                <button onClick={() => changeAdd(name)}>Change & Add </button>
               </div>
+              {`${name}`}
+              {/* </div> */}
             </li>
           );
         })}

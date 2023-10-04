@@ -4,6 +4,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1001;
+  button {
+    margin-top: 10px;
+  }
 }
 .popupbackground {
   width: 100vw;
@@ -16,16 +19,15 @@
 .note {
   display: flex;
   flex-direction: column;
-  background-color: grey;
-  width: auto;
+  background-color: rgb(36, 43, 57);
+  width: 80vw;
   min-width: 300px;
-  max-width: 60%;
-  height: auto;
-  max-height: 50%;
+  height: 50vh;
   padding: 20px;
   .popUpTop {
     width: 100%;
     height: 50px;
+    margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -39,7 +41,9 @@
   }
   .mainDiv {
     display: flex;
+    height: 60vh;
     justify-content: space-around;
+    overflow-y: scroll;
   }
   @media (max-width: 900px) {
     .mainDiv {
@@ -47,13 +51,15 @@
     }
   }
 }
+
 .configRow {
-  width: 300px;
+  height: 100%;
   //   min-width: 300px;
   //   max-width: 300px;
 }
 .configRow2 {
   width: 500px;
+  height: 90%;
 }
 .liBtnPad {
   button {
@@ -61,6 +67,9 @@
   }
 }
 .configMember {
+  height: auto;
+  width: 40%;
+  background-color: rgb(21, 25, 34);
   div {
     display: flex;
     justify-content: space-between;
@@ -71,14 +80,41 @@
   ul {
     padding: 0;
     margin: 0;
-    margin-left: 10px;
-    margin-right: 10px;
-    min-width: 200px;
-    max-height: 200px;
-    overflow-y: scroll;
+    li {
+      padding: 6px;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
     div {
       display: flex;
       justify-content: space-between;
+      align-items: center;
     }
+  }
+}
+.imgSubDiv {
+  background-color: rgb(75, 1, 75);
+  height: 30px;
+}
+.pickMember {
+  height: 92%;
+  overflow-y: scroll;
+  li:nth-child(even) {
+    background-color: rgb(54, 54, 170);
+  }
+  li:nth-child(odd) {
+    background-color: rgb(31, 31, 104);
+  }
+}
+.selectedMember {
+  height: 100%;
+  overflow-y: scroll;
+  li:nth-child(even) {
+    background-color: rgb(54, 170, 85);
+  }
+  li:nth-child(odd) {
+    background-color: rgb(28, 93, 45);
   }
 }

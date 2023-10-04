@@ -19,9 +19,9 @@ const AddMemberComp: React.FC<ConfigMember> = ({ setMembersFunc }) => {
       let str = key;
       if (key !== val) str += ` => ${val}`;
       return (
-        <div key={`${key}selected`}>
+        <li key={`${key}selected`} className=''>
           {str} <button onClick={() => clickDelete(key)}>x</button>
-        </div>
+        </li>
       );
     });
     setList(elements);
@@ -35,7 +35,7 @@ const AddMemberComp: React.FC<ConfigMember> = ({ setMembersFunc }) => {
 
   return (
     <div className='configMember configRow'>
-      <ul>{list}</ul>
+      <ul className='selectedMember'>{list}</ul>
     </div>
   );
 };

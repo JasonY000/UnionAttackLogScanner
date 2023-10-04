@@ -6,17 +6,20 @@ import Chart from './DataBoard';
 import Settings from './Settings';
 
 function App() {
-  const [data, setData] = useState<chartProp>({});
+  const [Chartdata, setChartData] = useState<chartProp>({});
   const [configUp, setConfigUp] = useState<boolean>(true);
 
   async function send() {
     const data: chartProp = await startDetection();
     console.log(data);
-    setData(data);
+    setChartData(data);
   }
   function setConfigUpFunc() {
     setConfigUp(!configUp);
     return;
+  }
+  function setChartDataFunc(charData: chartProp) {
+    setChartData(charData);
   }
   return (
     <div className='App'>
@@ -29,8 +32,10 @@ function App() {
           Config
         </button>
       </div>
-      {Object.values(data).length >= 1 && <Chart data={data} />}
-      {configUp && <Settings Close={setConfigUpFunc} />}
+      {Object.values(Chartdata).length >= 1 && <Chart data={Chartdata} />}
+      {configUp && (
+        <Settings Close={setConfigUpFunc} setChartDataFunc={setChartDataFunc} />
+      )}
     </div>
   );
 }

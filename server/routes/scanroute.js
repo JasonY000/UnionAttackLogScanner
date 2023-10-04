@@ -26,12 +26,16 @@ const upload = multer({ storage });
 
 router.post(
   '/upload',
-  upload.array('img', 20),
+  upload.array('img', 30),
   scanController.configScan,
   dirController.remove,
   (req, res) => {
     return res.status(200).json([res.locals.result, res.locals.originScan]);
   }
 );
+
+router.post('/finalize', cleanUpController.finalize, (req, res) => {
+  return res.status(200).json(res.locals.result);
+});
 
 module.exports = router;
