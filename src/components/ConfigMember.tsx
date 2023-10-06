@@ -10,11 +10,9 @@ const AddMemberComp: React.FC<ConfigMember> = ({ setMembersFunc }) => {
   // Use useContext with the specified type
   const members = useContext<MemberType>(MemberContext);
   const [list, setList] = useState<JSX.Element[]>([]);
-
   const inputName = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
-    console.log('useeffect', members);
     const elements = Object.entries(members).map(([key, val]) => {
       let str = key;
       if (key !== val) str += ` => ${val}`;
@@ -35,7 +33,6 @@ const AddMemberComp: React.FC<ConfigMember> = ({ setMembersFunc }) => {
     delete newList[keyToDelete];
     setMembersFunc(newList);
   }
-
   return (
     <div className='configMember configRow'>
       <ul className='selectedMember'>{list}</ul>

@@ -21,6 +21,7 @@ export const MemberContext = createContext<MemberType>({});
 const Settings: React.FC<settingsProp> = ({ ClosePop, setChartDataFunc }) => {
   const [members, setMembers] = useState<MemberType>({});
   const [data, setData] = useState<string[]>([]);
+  const inputName = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     const storedMembersJSON = localStorage.getItem('members');
@@ -57,6 +58,13 @@ const Settings: React.FC<settingsProp> = ({ ClosePop, setChartDataFunc }) => {
     ClosePop();
     return;
   }
+  function addMember() {
+    if (inputName.current?.value) {
+      setMembersFunc(inputName.current.value, inputName.current?.value);
+      inputName.current.value = '';
+      save();
+    }
+  }
   return (
     <div>
       <div className='pop-up popupbackground'></div>
@@ -71,13 +79,25 @@ const Settings: React.FC<settingsProp> = ({ ClosePop, setChartDataFunc }) => {
         </div>
         <div className='mainDiv'>
           <div>
-            <p>Current members list</p>
+            <div className='addList'>
+              <p>Current members list</p>
+              <div>
+                <input placeholder='manual add' ref={inputName}></input>
+                <button onClick={addMember} className='btnSub'>
+                  add
+                </button>
+              </div>
+            </div>
+
             <MemberContext.Provider value={members}>
               <ConfigMember setMembersFunc={setMembersFunc} />
             </MemberContext.Provider>
           </div>
           <div>
-            <p>Step 1: Upload logs and add members</p>
+            <p>
+              <span className='greenTxt'>Step 1:</span> Upload logs and add
+              members
+            </p>
             <ConfigStart
               setMembersFunc={setMembersFunc}
               setDataFunc={setDataFunc}

@@ -7,7 +7,7 @@ import Settings from './Settings';
 
 function App() {
   const [Chartdata, setChartData] = useState<chartProp>({});
-  const [configUp, setConfigUp] = useState<boolean>(false);
+  const [configUp, setConfigUp] = useState<boolean>(true);
 
   async function send() {
     const data: chartProp = await startDetection();
