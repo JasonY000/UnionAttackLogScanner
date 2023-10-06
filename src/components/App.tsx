@@ -6,31 +6,33 @@ import Chart from './DataBoard';
 import Settings from './Settings';
 
 function App() {
-  const [data, setData] = useState<chartProp>({});
-  const [configUp, setConfigUp] = useState<boolean>(true);
+  const [Chartdata, setChartData] = useState<chartProp>({});
+  const [configUp, setConfigUp] = useState<boolean>(false);
 
   async function send() {
     const data: chartProp = await startDetection();
     console.log(data);
-    setData(data);
+    setChartData(data);
   }
   function setConfigUpFunc() {
     setConfigUp(!configUp);
     return;
   }
+  function setChartDataFunc(charData: chartProp) {
+    setChartData(charData);
+  }
   return (
     <div className='App'>
       <h1>Damage Log Scanner</h1>
       <div>
-        <button onClick={send} className='SubmitButton'>
-          submit
-        </button>
-        <button onClick={setConfigUpFunc} className='SubmitButton'>
-          Config
+        <button onClick={setConfigUpFunc} className='SubmitButton btnSub'>
+          Get Started
         </button>
       </div>
-      {Object.values(data).length >= 1 && <Chart data={data} />}
-      {configUp && <Settings Close={setConfigUpFunc} />}
+      {Object.values(Chartdata).length >= 1 && <Chart data={Chartdata} />}
+      {configUp && (
+        <Settings Close={setConfigUpFunc} setChartDataFunc={setChartDataFunc} />
+      )}
     </div>
   );
 }

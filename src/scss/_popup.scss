@@ -5,6 +5,12 @@
   transform: translate(-50%, -50%);
   z-index: 1001;
 }
+.popUpTopText {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
 .popupbackground {
   width: 100vw;
   height: 100vh;
@@ -14,18 +20,15 @@
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
 }
 .note {
-  display: flex;
-  flex-direction: column;
-  background-color: grey;
-  width: auto;
+  background-color: rgb(34, 40, 49);
+  width: 80vw;
   min-width: 300px;
-  max-width: 60%;
-  height: auto;
-  max-height: 50%;
+  height: 80vh;
   padding: 20px;
   .popUpTop {
     width: 100%;
     height: 50px;
+    margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -39,46 +42,155 @@
   }
   .mainDiv {
     display: flex;
+    overflow-y: scroll;
+    height: 60vh;
     justify-content: space-around;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    p {
+      color: #f39f5a;
+      font-size: 20px;
+    }
+    div {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .configRow2 {
+        width: 100%;
+        height: 90%;
+        align-items: center;
+        justify-content: center;
+      }
+      .configRow {
+        height: 100%;
+      }
+      .configMember {
+        width: 90%;
+        border: 3px solid rgb(238, 238, 238);
+        box-shadow: 0px 0px 5px 1px rgb(0, 173, 181);
+        border-radius: 3px;
+        height: 90%;
+        background-color: rgb(47, 51, 58);
+        .imgSubDiv {
+          width: 90%;
+          justify-content: space-around;
+          flex-direction: row;
+          .btnImg {
+            color: #eeeeee;
+          }
+        }
+        ul {
+          padding: 0;
+          margin: 0;
+          width: 100%;
+          li {
+            color: #eeeeee;
+            padding: 6px;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            div {
+              flex-direction: row;
+              align-items: center;
+              width: auto;
+            }
+          }
+        }
+      }
+    }
   }
   @media (max-width: 900px) {
     .mainDiv {
       flex-direction: column;
+      align-items: center;
+      height: 80%;
+      padding: 0;
+      margin: 0;
+      div {
+        height: 50%;
+        width: 90%;
+        padding: 0;
+        margin: 0;
+        .configRow {
+          width: 100%;
+          height: 60%;
+        }
+        .configRow2 {
+          width: 100%;
+          height: 60%;
+          .imgSubDiv {
+            height: 30px;
+          }
+        }
+      }
     }
   }
 }
-.configRow {
-  width: 300px;
-  //   min-width: 300px;
-  //   max-width: 300px;
-}
-.configRow2 {
-  width: 500px;
-}
-.liBtnPad {
-  button {
-    margin-right: 10px;
+
+.pickMember {
+  height: 92%;
+  overflow-y: scroll;
+  li:nth-child(even) {
+    background-color: #525964;
+  }
+  li:nth-child(odd) {
+    background-color: #393e46;
   }
 }
-.configMember {
-  div {
-    display: flex;
-    justify-content: space-between;
-    input {
-      width: 200px;
-    }
+.selectedMember {
+  height: 100%;
+  overflow-y: scroll;
+  li:nth-child(even) {
+    background-color: #525964;
   }
-  ul {
-    padding: 0;
-    margin: 0;
-    margin-left: 10px;
-    margin-right: 10px;
-    min-width: 200px;
-    max-height: 200px;
-    overflow-y: scroll;
-    div {
-      display: flex;
-      justify-content: space-between;
-    }
+  li:nth-child(odd) {
+    background-color: #393e46;
   }
+}
+.btnSub {
+  background: rgb(0, 173, 181);
+  border: 0;
+  border-radius: 0.375rem;
+  box-sizing: border-box;
+  color: #fff;
+  height: 20px;
+  width: 20%;
+  max-width: 200px;
+  min-width: 70px;
+  cursor: pointer;
+  transform: translateZ(0) scale(1);
+  transition: transform 0.2s;
+}
+.btnSub:not(:disabled):hover {
+  transform: scale(1.05);
+}
+.btnSub:not(:disabled):hover:active {
+  transform: scale(1.05) translateY(0.125rem);
+}
+.xBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ae445a;
+  color: #eeeeee;
+  border: 1px solid #eeeeee;
+  border-radius: 0.375rem;
+  box-sizing: border-box;
+  height: 20px;
+  width: auto;
+  min-width: 30px;
+  cursor: pointer;
+  transform: translateZ(0) scale(1);
+  transition: transform 0.2s;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.xBtn:not(:disabled):hover {
+  transform: scale(1.05);
+}
+.xBtn:not(:disabled):hover:active {
+  transform: scale(1.05) translateY(0.125rem);
 }
