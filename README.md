@@ -27,7 +27,17 @@ On your browser, localhost:8080 should appear, and you are now running our appli
 Below is a example of the image: **(make sure the image is cropped just like below!)** <br>
 <img src="./__test__/testImage/image_1.jpg" width="300px"/><br>
 
-After, go to the website and click 'Get Started' and follow the steps.
+After, go to the website and click 'Get Started'.</br>
+Click 'choose file' and select your images, then click 'Submit'. **Scan might take longer if you have more iamges**.</br>
+**It is recommanded to submit only 1 day worth for the best result.**</br>
+Next, you will see a list of possible names appear with 2 button for each name.</br>
+
+- Add: You will click the button if the name is scanned correctly.
+- Change: you will click this button if the name is misspelt, a popup will appear asking you to input the correct name.</br>
+
+**You will still need to change the misspelt name even if the correct name has already been added before**</br>
+Any members that didn't attack could be added manually using the input on the left.</br>
+When every name has been added click 'Save & Finalize'.
 
 ## Limitation
 
