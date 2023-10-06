@@ -194,3 +194,7 @@
 .xBtn:not(:disabled):hover:active {
   transform: scale(1.05) translateY(0.125rem);
 }
+.btnFinal {
+  font-size: 20px;
+  height: 40px;
+}

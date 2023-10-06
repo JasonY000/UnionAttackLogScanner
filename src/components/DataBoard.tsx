@@ -21,6 +21,7 @@ interface chartProp {
   };
 }
 const Chart: React.FC<chartProp> = ({ data }) => {
+  console.log(data);
   // turning member list into array
   const attackTrack: string[] = Array.from(members);
   // data to feed to bar chart

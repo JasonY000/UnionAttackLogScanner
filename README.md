@@ -22,16 +22,12 @@ then type in
 npm run dev
 ```
 
-On your browser, localhost:8080 should appear, and you are now running our application!<br>Next you would take screenshots of the union damage logs and put them in the nikkeLog directory.
-
-```bash
-/src/nikkeLog
-```
+On your browser, localhost:8080 should appear, and you are now running our application!<br>Next you would take screenshots of the union damage logs.
 
 Below is a example of the image: **(make sure the image is cropped just like below!)** <br>
 <img src="./__test__/testImage/image_1.jpg" width="300px"/><br>
-After that, navagate to **memberList.js** in src directory and input all the members name (English only, More information in [Limitation](#Limitation))<br>
-Finially, you are ready to press submit on the website. Depending on how many images there are, the wait time may vary.
+
+After, go to the website and click 'Get Started' and follow the steps.
 
 ## Limitation
 
@@ -73,14 +69,14 @@ else if(element === 'tesseract.js miss-scan result'){
 
 ## Development
 
-|                   Goal                   | Status | Notes                                                                    |
-| :--------------------------------------: | :----: | :----------------------------------------------------------------------- |
-|          Typescript conversion           |   🎉   |                                                                          |
-|       create a member list on app        |   🎉   |                                                                          |
-| Add and remove images in the application |   🎉   | ~~Exploring possible options.~~ **solution found!**                      |
-|    move scanning function to backend     |   🎉   |                                                                          |
-|     ease the troubleshooting process     |   ⏳   | Planning stage |
-|           Frontend improvement           |   ⏰   |
+|                   Goal                   | Status | Notes                                               |
+| :--------------------------------------: | :----: | :-------------------------------------------------- |
+|          Typescript conversion           |   🎉   |                                                     |
+|       create a member list on app        |   🎉   |                                                     |
+| Add and remove images in the application |   🎉   | ~~Exploring possible options.~~ **solution found!** |
+|    move scanning function to backend     |   🎉   |                                                     |
+|     ease the troubleshooting process     |   🎉   | **Solution implemented!**                           |
+|           Frontend improvement           |   ⏳   |
 
 - 🎉 = **Completed!**
 - ⏳ = **In progress!**

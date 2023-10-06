@@ -14,7 +14,7 @@ function App() {
     console.log(data);
     setChartData(data);
   }
-  function setConfigUpFunc() {
+  function toggle() {
     setConfigUp(!configUp);
     return;
   }
@@ -25,13 +25,13 @@ function App() {
     <div className='App'>
       <h1>Damage Log Scanner</h1>
       <div>
-        <button onClick={setConfigUpFunc} className='SubmitButton btnSub'>
+        <button onClick={toggle} className='SubmitButton btnSub'>
           Get Started
         </button>
       </div>
       {Object.values(Chartdata).length >= 1 && <Chart data={Chartdata} />}
       {configUp && (
-        <Settings Close={setConfigUpFunc} setChartDataFunc={setChartDataFunc} />
+        <Settings ClosePop={toggle} setChartDataFunc={setChartDataFunc} />
       )}
     </div>
   );

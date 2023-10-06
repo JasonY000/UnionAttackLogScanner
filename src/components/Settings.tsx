@@ -10,7 +10,7 @@ import React, {
 import ConfigMember from './ConfigMember';
 import ConfigStart from './ConfigStart';
 interface settingsProp {
-  Close: () => void;
+  ClosePop: () => void;
   setChartDataFunc: Function;
 }
 type MemberType = Record<string, string>;
@@ -18,7 +18,7 @@ type DataType = Record<string, number>;
 
 export const MemberContext = createContext<MemberType>({});
 
-const Settings: React.FC<settingsProp> = ({ Close, setChartDataFunc }) => {
+const Settings: React.FC<settingsProp> = ({ ClosePop, setChartDataFunc }) => {
   const [members, setMembers] = useState<MemberType>({});
   const [data, setData] = useState<string[]>([]);
 
@@ -44,15 +44,18 @@ const Settings: React.FC<settingsProp> = ({ Close, setChartDataFunc }) => {
 
   function save() {
     localStorage.setItem('members', JSON.stringify(members));
+    return;
   }
 
   function finalizeFunc() {
-    localStorage.setItem('members', JSON.stringify(members));
+    save();
     const body = { members: members, data: data };
     axios
       .post('http://localhost:3000/scan/finalize', body)
       .then((res) => setChartDataFunc(res.data))
       .catch((err) => console.log(err));
+    ClosePop();
+    return;
   }
   return (
     <div>
@@ -62,26 +65,26 @@ const Settings: React.FC<settingsProp> = ({ Close, setChartDataFunc }) => {
           <button onClick={save} className='btnSub'>
             SAVE
           </button>
-          <button onClick={Close} className='xBtn'>
+          <button onClick={ClosePop} className='xBtn'>
             X
           </button>
         </div>
         <div className='mainDiv'>
           <div>
-            <p>member list</p>
+            <p>Current members list</p>
             <MemberContext.Provider value={members}>
               <ConfigMember setMembersFunc={setMembersFunc} />
             </MemberContext.Provider>
           </div>
           <div>
-            <p>Upload logs and add members</p>
+            <p>Step 1: Upload logs and add members</p>
             <ConfigStart
               setMembersFunc={setMembersFunc}
               setDataFunc={setDataFunc}
             />
           </div>
         </div>
-        <button onClick={finalizeFunc} className='btnSub'>
+        <button onClick={finalizeFunc} className='btnSub btnFinal'>
           Save & Finalize
         </button>
       </div>

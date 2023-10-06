@@ -25,7 +25,10 @@ cleanUpController.finalize = (req, res, next) => {
     const filterReg4 = /[,]/g;
 
     allData.forEach((char) => {
-      if (memberList[char] !== undefined) {
+      if (
+        memberList[char] !== undefined &&
+        typeof filtered[filtered.length - 1] !== 'string'
+      ) {
         filtered.push(memberList[char]);
       } else if (
         filterReg4.test(char) &&
