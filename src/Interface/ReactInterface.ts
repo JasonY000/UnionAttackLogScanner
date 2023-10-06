@@ -16,3 +16,12 @@ export interface DataForChart {
   name: string;
   damage: number;
 }
+
+export interface ConfigMember {
+  setMembersFunc: Function;
+}
+
+export interface ConfigStart {
+  setMembersFunc: Function;
+  setDataFunc: Function;
+}
