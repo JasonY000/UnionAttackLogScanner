@@ -6,7 +6,7 @@ As this project is still early in its development, checkout the [development roa
 ## Introduction
 
 UnionAttackLogScanner is tool that aims remove tediouse spreadsheet work for tracking union member damage in a specific game. simple drag in screenshots of damage logs, and click submit, the application will take care of the rest and present you with a bar chart and notify you of any slackers.
-<img src="./public/Screenshot 2023-09-04 at 4.27.10 PM.png" width="900px"/><br>
+<img src="public/Screenshot 2023-10-06 at 6.12.33 PM.png" width="900px"/><br>
 
 ## Getting Started
 
@@ -28,6 +28,7 @@ Below is a example of the image: **(make sure the image is cropped just like bel
 <img src="./__test__/testImage/image_1.jpg" width="300px"/><br>
 
 After, go to the website and click 'Get Started'.</br>
+<img src="public/Screenshot 2023-10-06 at 6.10.02 PM.png">
 Click 'choose file' and select your images, then click 'Submit'. **Scan might take longer if you have more iamges**.</br>
 **It is recommanded to submit only 1 day worth for the best result.**</br>
 Next, you will see a list of possible names appear with 2 button for each name.</br>
