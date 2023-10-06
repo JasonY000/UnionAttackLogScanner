@@ -7,7 +7,7 @@ import Settings from './Settings';
 
 function App() {
   const [Chartdata, setChartData] = useState<chartProp>({});
-  const [configUp, setConfigUp] = useState<boolean>(true);
+  const [configUp, setConfigUp] = useState<boolean>(false);
 
   async function send() {
     const data: chartProp = await startDetection();
@@ -25,11 +25,8 @@ function App() {
     <div className='App'>
       <h1>Damage Log Scanner</h1>
       <div>
-        <button onClick={send} className='SubmitButton'>
-          submit
-        </button>
-        <button onClick={setConfigUpFunc} className='SubmitButton'>
-          Config
+        <button onClick={setConfigUpFunc} className='SubmitButton btnSub'>
+          Get Started
         </button>
       </div>
       {Object.values(Chartdata).length >= 1 && <Chart data={Chartdata} />}

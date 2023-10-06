@@ -20,7 +20,10 @@ const AddMemberComp: React.FC<ConfigMember> = ({ setMembersFunc }) => {
       if (key !== val) str += ` => ${val}`;
       return (
         <li key={`${key}selected`} className=''>
-          {str} <button onClick={() => clickDelete(key)}>x</button>
+          {str}{' '}
+          <button onClick={() => clickDelete(key)} className='xBtn'>
+            x
+          </button>
         </li>
       );
     });

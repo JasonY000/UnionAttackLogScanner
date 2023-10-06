@@ -47,6 +47,7 @@ const Settings: React.FC<settingsProp> = ({ Close, setChartDataFunc }) => {
   }
 
   function finalizeFunc() {
+    localStorage.setItem('members', JSON.stringify(members));
     const body = { members: members, data: data };
     axios
       .post('http://localhost:3000/scan/finalize', body)
@@ -58,19 +59,31 @@ const Settings: React.FC<settingsProp> = ({ Close, setChartDataFunc }) => {
       <div className='pop-up popupbackground'></div>
       <div className='pop-up note'>
         <div className='popUpTop'>
-          <button onClick={save}>save members</button>
-          <button onClick={Close}>X</button>
+          <button onClick={save} className='btnSub'>
+            SAVE
+          </button>
+          <button onClick={Close} className='xBtn'>
+            X
+          </button>
         </div>
         <div className='mainDiv'>
-          <MemberContext.Provider value={members}>
-            <ConfigMember setMembersFunc={setMembersFunc} />
-          </MemberContext.Provider>
-          <ConfigStart
-            setMembersFunc={setMembersFunc}
-            setDataFunc={setDataFunc}
-          />
+          <div>
+            <p>member list</p>
+            <MemberContext.Provider value={members}>
+              <ConfigMember setMembersFunc={setMembersFunc} />
+            </MemberContext.Provider>
+          </div>
+          <div>
+            <p>Upload logs and add members</p>
+            <ConfigStart
+              setMembersFunc={setMembersFunc}
+              setDataFunc={setDataFunc}
+            />
+          </div>
         </div>
-        <button onClick={finalizeFunc}>Finalize</button>
+        <button onClick={finalizeFunc} className='btnSub'>
+          Save & Finalize
+        </button>
       </div>
     </div>
   );

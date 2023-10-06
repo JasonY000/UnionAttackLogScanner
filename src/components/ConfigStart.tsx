@@ -42,15 +42,18 @@ const ConfigMemberList: React.FC<ConfigStart> = ({
     setMembersFunc(target, result);
     removeAfter(target);
   };
+
   const removeAfter = (target: string) => {
     const set = new Set(resData[0]);
     set.delete(target);
     setResData([Array.from(set), resData[1]]);
   };
+
   return (
     <div className='configMember configRow2'>
       <div className='imgSubDiv'>
         <input
+          className='btnImg'
           type='file'
           accept='image/png, image/jpeg'
           onChange={(e) => {
@@ -58,7 +61,11 @@ const ConfigMemberList: React.FC<ConfigStart> = ({
           }}
           multiple
         />
-        <input type='submit' onClick={sendConfig}></input>
+        <input
+          type='submit'
+          onClick={sendConfig}
+          className='btnSub button-64'
+        ></input>
       </div>
       <ul className='pickMember'>
         {resData[0]?.map((name) => {
@@ -66,8 +73,12 @@ const ConfigMemberList: React.FC<ConfigStart> = ({
             <li key={name}>
               {/* <div id={`${name}`}> */}
               <div className='liBtnPad'>
-                <button onClick={() => add(name)}>add </button>
-                <button onClick={() => changeAdd(name)}>Change & Add </button>
+                <button onClick={() => add(name)} className='xBtn'>
+                  add{' '}
+                </button>
+                <button onClick={() => changeAdd(name)} className='xBtn'>
+                  Change
+                </button>
               </div>
               {`${name}`}
               {/* </div> */}
