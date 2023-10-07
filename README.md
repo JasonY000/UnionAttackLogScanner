@@ -42,7 +42,7 @@ When every name has been added click 'Save & Finalize'.
 
 ## Limitation
 
-This application relies on <a href='https://github.com/naptha/tesseract.js/tree/master'>tesseract.js</a> OCR Engine, to scane each image to extract its words. Here is a list of constraints and deficiencies:
+This application relies on <a href='https://github.com/naptha/tesseract.js/tree/master'>tesseract.js</a> OCR Engine, to scane each image to extract the words. Here is a list of constraints and deficiencies:
 | constraints | Status | Notes |
 | :--------------------: | :----: | :---- |
 | Language limitation | ⏳ | At the moment, this application exclusively supports English names. While it might be feasible to extend its functionality to other languages, further testing is necessary to ensure the reliability of tesseract.js in handling these variations.
