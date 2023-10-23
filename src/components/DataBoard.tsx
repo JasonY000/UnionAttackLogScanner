@@ -21,9 +21,10 @@ interface chartProp {
   };
 }
 const Chart: React.FC<chartProp> = ({ data }) => {
-  console.log(data);
   // turning member list into array
-  const attackTrack: string[] = Array.from(members);
+  const storedMembersJSON = localStorage.getItem('members');
+  const parsed = storedMembersJSON ? JSON.parse(storedMembersJSON) : null;
+  const attackTrack: string[] = Object.values(parsed);
   // data to feed to bar chart
   let damageDataArr: DataForChart[] = [];
   // members who attacked atleast once
@@ -41,7 +42,6 @@ const Chart: React.FC<chartProp> = ({ data }) => {
   for (const member of attackTrack) {
     if (!setWhoAtt.has(member)) attAmount[0].push(member);
   }
-  console.log(damageDataArr);
   return (
     <div>
       <div className='recharts-responsive-container'>
@@ -59,11 +59,17 @@ const Chart: React.FC<chartProp> = ({ data }) => {
             }}
           >
             <CartesianGrid strokeDasharray='3 3' />
-            <XAxis dataKey='name' fontSize={18} angle={60} textAnchor='start' />
-            <YAxis />
+            <XAxis
+              dataKey='name'
+              fontSize={18}
+              angle={60}
+              textAnchor='start'
+              stroke='#00ADB5'
+            />
+            <YAxis stroke='#00ADB5' />
             <Tooltip />
             <Legend layout='horizontal' verticalAlign='top' align='center' />
-            <Bar dataKey='damage' fill='#8884d8' />
+            <Bar dataKey='damage' fill='#ae445a' />
           </BarChart>
         </ResponsiveContainer>
       </div>

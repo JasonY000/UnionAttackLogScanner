@@ -7,11 +7,10 @@ import Settings from './Settings';
 
 function App() {
   const [Chartdata, setChartData] = useState<chartProp>({});
-  const [configUp, setConfigUp] = useState<boolean>(true);
+  const [configUp, setConfigUp] = useState<boolean>(false);
 
   async function send() {
     const data: chartProp = await startDetection();
-    console.log(data);
     setChartData(data);
   }
   function toggle() {

@@ -38,7 +38,6 @@ cleanUpController.finalize = (req, res, next) => {
       } else if (char.length > 5 && /^\d+$/.test(char)) {
         filtered.push(parseFloat(char));
       }
-      console.log(char);
     });
 
     const track = {};

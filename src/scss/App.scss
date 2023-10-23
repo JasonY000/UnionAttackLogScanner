@@ -4,6 +4,7 @@ html {
   padding: 0;
   margin: 0;
   color: #eeeeee;
+  overflow-x: hidden;
 }
 .App {
   text-align: center;
@@ -31,4 +32,8 @@ html {
 }
 ul {
   font-size: 20px;
+}
+
+.recharts-tooltip-label {
+  color: rgb(0, 173, 181);
 }

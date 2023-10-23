@@ -21,7 +21,6 @@ const ConfigMemberList: React.FC<ConfigStart> = ({
     axios
       .post('http://localhost:3000/scan/upload', formData)
       .then((res) => {
-        console.log(res.data);
         setDataFunc(res.data[1]);
         setResData(res.data);
       })
@@ -29,16 +28,12 @@ const ConfigMemberList: React.FC<ConfigStart> = ({
   };
 
   const add = (target: string) => {
-    console.log(target);
     setMembersFunc(target, target);
-    console.log(resData[0]);
     removeAfter(target);
   };
 
   const changeAdd = (target: string) => {
-    console.log('changeAdd');
     const result = prompt('Please enter corrected name.');
-    console.log(result);
     setMembersFunc(target, result);
     removeAfter(target);
   };

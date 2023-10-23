@@ -5,7 +5,7 @@ const AttackRow: React.FC<RowProp> = ({ num, members }) => {
     return <li key={`${mem}+${i}`}>{mem}</li>;
   });
   return (
-    <div>
+    <div className='attRow'>
       <h2>{num} Attack</h2>
       <ul>{liList}</ul>
     </div>
