@@ -42,7 +42,7 @@ When every name has been added click 'Save & Finalize'.
 
 ## Limitation
 
-This application relies on <a href='https://github.com/naptha/tesseract.js/tree/master'>tesseract.js</a> OCR Engine, to scane each image to extract its words. Here is a list of constraints and deficiencies:
+This application relies on <a href='https://github.com/naptha/tesseract.js/tree/master'>tesseract.js</a> OCR Engine, to scane each image to extract the words. Here is a list of constraints and deficiencies:
 | constraints | Status | Notes |
 | :--------------------: | :----: | :---- |
 | Language limitation | ⏳ | At the moment, this application exclusively supports English names. While it might be feasible to extend its functionality to other languages, further testing is necessary to ensure the reliability of tesseract.js in handling these variations.
@@ -52,31 +52,6 @@ This application relies on <a href='https://github.com/naptha/tesseract.js/tree/
 - 🎉 = **Completed!**
 - ❌ = **Problem!**
 - ⏳ = **Problem with solution!**
-
-## Troubleshoot
-
-**New Functionaility currently under development! No code will have to be edited!**<br>
-As mentioned above this application could be inconsistent, you may encounter a few difficulties when using this application:
-Here are some potentials issue with it's solutions. <br>
-(more user friendly solution will be added in the future, checkout the [development roadmap](#development) for more information.)
-
-After updating the memberList and scanning your images, if you spot any anomaly such as;
-
-- names missing on the bar charts, or members showing up on the 0 attack used list when they have attacked.
-- some members having lower damage numbers than expected.
-
-The could be due to <a href='https://github.com/naptha/tesseract.js/tree/master'>tesseract.js</a> scanning the name differently as mentioned above in [Limitation](#Limitation). Follow the below steps to troubleshoot.
-
-- Only include the image with the name that is experiencing problems.
-- go to clearUp.js and uncomment line 9, and click submit on the appilcation.
-- check the console in the browser and see what tesseract.js result is after scanning the image. is the name being miss-scanned?
-- add a else if statment under line 28;
-
-```bash
-else if(element === 'tesseract.js miss-scan result'){
-    filtered.push('correct name in memberList')
-}
-```
 
 ## Development
 
