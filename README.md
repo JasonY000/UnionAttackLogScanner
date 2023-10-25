@@ -29,8 +29,8 @@ Below is a example of the image: **(make sure the image is cropped just like bel
 
 After, go to the website and click 'Get Started'.</br>
 <img src="public/demogif.gif">
-Click 'choose file' and select your images, then click 'Submit'. **Scan might take longer if you have more iamges**.</br>
-**It is recommanded to submit only 1 day worth for the best result.**</br>
+Click 'choose file' and select your images, then click 'Submit'. **Scan might take longer if you have more images**.</br>
+**It is recommended to submit only 1 day worth of logs for the best result.**</br>
 Next, you will see a list of possible names appear with 2 button for each name.</br>
 
 - Add: You will click the button if the name is scanned correctly.
