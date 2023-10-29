@@ -19,27 +19,29 @@ cleanUpController.finalize = (req, res, next) => {
   try {
     //console.log(req.body);
     const memberList = req.body.members;
-    const allData = req.body.data.flat();
+    const allData = [...req.body.data.flat()];
 
     const filtered = [];
     const filterReg4 = /[,]/g;
-
     allData.forEach((char) => {
+      let temp = char;
+      console.log(temp, typeof temp);
+      if (/^\d+$/.test(temp)) temp = parseFloat(temp);
       if (
-        memberList[char] !== undefined &&
+        memberList[temp] !== undefined &&
         typeof filtered[filtered.length - 1] !== 'string'
       ) {
-        filtered.push(memberList[char]);
+        filtered.push(memberList[temp]);
       } else if (
-        filterReg4.test(char) &&
+        filterReg4.test(temp) &&
         typeof filtered[filtered.length - 1] === 'string'
       ) {
-        filtered.push(parseFloat(char.replace(/[, ]/g, '')));
-      } else if (char.length > 5 && /^\d+$/.test(char)) {
+        filtered.push(parseFloat(temp.replace(/[, ]/g, '')));
+      } else if (temp.length > 5 && /^\d+$/.test(`${temp}`) === true) {
         filtered.push(parseFloat(char));
       }
     });
-
+    console.log(filtered);
     const track = {};
     for (let i = 0; i < filtered.length; i += 2) {
       if (track[filtered[i]] === undefined) {

@@ -45,11 +45,11 @@ When every name has been added click 'Save & Finalize'.
 This application relies on <a href='https://github.com/naptha/tesseract.js/tree/master'>tesseract.js</a> OCR Engine, to scane each image to extract the words. Here is a list of constraints and deficiencies:
 | constraints | Status | Notes |
 | :--------------------: | :----: | :---- |
+| OCR Engine | ❌ | The OCR engine has diffuclties picking up information at the top and bottom of the image, this leads into inconsistent result being presented, this should be taken into account and manual double check should be performed before making any decisions.
 | Language limitation | ⏳ | At the moment, this application exclusively supports English names. While it might be feasible to extend its functionality to other languages, further testing is necessary to ensure the reliability of tesseract.js in handling these variations.
 | Inconsistant names | ❌ | Tesseract.js could be inconsistant ocationally, for example the name 'mimi' could result in both 'mimi' or 'miimi' being scanned. **If you see any names in the members list missing or damage being off on this bar chart, you might need to check the result of tesseract.js scan result and see if the name is being miss read** more [Troubleshoot](#Troubleshoot) below on how to configure this problem.
 | Inconsistant damage | ❌ | As mentioned above, Tesseract.js could be inconsistant ocationally, some damage numbers might be off for exsample '1' could result in '7' or '5' => '3' <br>**So please take this into consideration when making a final dicision.** But the overall performance should be fairly accurate.
 
-- 🎉 = **Completed!**
 - ❌ = **Problem!**
 - ⏳ = **Problem with solution!**
 
@@ -62,7 +62,7 @@ This application relies on <a href='https://github.com/naptha/tesseract.js/tree/
 | Add and remove images in the application |   🎉   | ~~Exploring possible options.~~ **solution found!** |
 |    move scanning function to backend     |   🎉   |                                                     |
 |     ease the troubleshooting process     |   🎉   | **Solution implemented!**                           |
-|           Frontend improvement           |   ⏳   |
+|           Frontend improvement           |   🎉   |
 
 - 🎉 = **Completed!**
 - ⏳ = **In progress!**

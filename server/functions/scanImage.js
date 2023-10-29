@@ -32,18 +32,27 @@ module.exports = async function scanImage(imgPathArr) {
 
 function onlyNames(text) {
   let regex = /[@]+/gm;
-  const textArr = text.replaceAll('\n', '@').toLowerCase().split(regex);
-  const filterReg2 = /[.,\s\\]/;
+  const textArr = text
+    .replaceAll('\n', '@')
+    .toLowerCase()
+    .split(regex)
+    .filter((text) => text.length > 2);
+  const filterReg2 = /[.,\\]/;
+  const xSpace = /^x\s/;
   const numberText = /^\d+$/;
   const result = [];
   textArr.forEach((element, i) => {
+    console.log(element);
+    // if (numberText.test(element) === true) textArr[i] = parseFloat(element);
     if (
-      filterReg2.test(element) === false &&
+      !filterReg2.test(element) &&
       element.length > 2 &&
-      numberText.test(element) === false
+      !numberText.test(element) &&
+      !xSpace.test(element)
     ) {
       result.push(element);
     }
   });
+  // console.log(textArr);
   return [result, textArr];
 }
