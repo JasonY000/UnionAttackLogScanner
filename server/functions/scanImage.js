@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { createWorker, PSM } = require('tesseract.js');
+const {createWorker, PSM} = require('tesseract.js');
 
 module.exports = async function scanImage(imgPathArr) {
   console.log(imgPathArr);
@@ -19,7 +19,7 @@ module.exports = async function scanImage(imgPathArr) {
     const imagePath = path.join(__dirname, `../images/temp/${imgPathArr[i]}`);
     const imageLoaded = await fs.promises.readFile(imagePath);
     const {
-      data: { text },
+      data: {text},
     } = await worker.recognize(imageLoaded);
     const [names, textArr] = onlyNames(text);
     originText.push(textArr);
@@ -42,13 +42,14 @@ function onlyNames(text) {
   const numberText = /^\d+$/;
   const result = [];
   textArr.forEach((element, i) => {
-    console.log(element);
+    //console.log(element);
     // if (numberText.test(element) === true) textArr[i] = parseFloat(element);
     if (
       !filterReg2.test(element) &&
       element.length > 2 &&
       !numberText.test(element) &&
-      !xSpace.test(element)
+      !xSpace.test(element) &&
+      !element.includes(' ')
     ) {
       result.push(element);
     }
