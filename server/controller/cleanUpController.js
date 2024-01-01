@@ -17,15 +17,13 @@ cleanUpController.onlyName = (req, res, next) => {
 
 cleanUpController.finalize = (req, res, next) => {
   try {
-    //console.log(req.body);
     const memberList = req.body.members;
     const allData = [...req.body.data.flat()];
-    console.log(allData);
+    //console.log(allData);
     const filtered = [];
     const filterReg4 = /[,]/g;
     allData.forEach((char) => {
       let temp = char;
-      //console.log(temp, /^\d+$/.test(temp));
       if (
         memberList[temp] &&
         typeof filtered[filtered.length - 1] === 'string'

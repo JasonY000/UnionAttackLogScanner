@@ -18,7 +18,7 @@ type DataType = Record<string, number>;
 
 export const MemberContext = createContext<MemberType>({});
 
-const Settings: React.FC<settingsProp> = ({ ClosePop, setChartDataFunc }) => {
+const Settings: React.FC<settingsProp> = ({ClosePop, setChartDataFunc}) => {
   const [members, setMembers] = useState<MemberType>({});
   const [data, setData] = useState<string[]>([]);
   const inputName = useRef<HTMLInputElement | null>(null);
@@ -33,7 +33,7 @@ const Settings: React.FC<settingsProp> = ({ ClosePop, setChartDataFunc }) => {
 
   function setMembersFunc(wrong: string | MemberType, correct: string) {
     if (typeof wrong === 'string') {
-      setMembers({ ...members, [wrong]: correct });
+      setMembers({...members, [wrong]: correct});
     } else {
       setMembers(wrong);
     }
@@ -50,12 +50,16 @@ const Settings: React.FC<settingsProp> = ({ ClosePop, setChartDataFunc }) => {
 
   function finalizeFunc() {
     save();
-    const body = { members: members, data: data };
+    const body = {members: members, data: data};
     axios
       .post('http://localhost:3000/scan/finalize', body)
       .then((res) => setChartDataFunc(res.data))
       .catch((err) => console.log(err));
     ClosePop();
+    setTimeout(() => {
+      const div = document.getElementById('dataBar');
+      div?.scrollIntoView({behavior: 'smooth'});
+    }, 100);
     return;
   }
   function addMember() {

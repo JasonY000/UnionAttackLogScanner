@@ -1,6 +1,5 @@
 import React from 'react';
-import { members } from '../functions/memberList';
-import { DataForChart } from '../Interface/ReactInterface';
+import {DataForChart} from '../Interface/ReactInterface';
 import AttackRow from './AttackRow';
 import {
   BarChart,
@@ -20,7 +19,7 @@ interface chartProp {
     };
   };
 }
-const Chart: React.FC<chartProp> = ({ data }) => {
+const Chart: React.FC<chartProp> = ({data}) => {
   // turning member list into array
   const storedMembersJSON = localStorage.getItem('members');
   const parsed = storedMembersJSON ? JSON.parse(storedMembersJSON) : null;
@@ -32,7 +31,7 @@ const Chart: React.FC<chartProp> = ({ data }) => {
   // track who attacked how many times
   const attAmount: string[][] = [[], [], []];
   for (const [key, value] of Object.entries(data)) {
-    damageDataArr.push({ name: key, damage: value.damage });
+    damageDataArr.push({name: key, damage: value.damage});
     if (value.attack < 3) attAmount[value.attack].push(key);
     whoAtt.push(key);
   }
@@ -43,7 +42,7 @@ const Chart: React.FC<chartProp> = ({ data }) => {
     if (!setWhoAtt.has(member)) attAmount[0].push(member);
   }
   return (
-    <div>
+    <div id='dataBar'>
       <div className='recharts-responsive-container'>
         <ResponsiveContainer width='90%' height='90%'>
           <BarChart

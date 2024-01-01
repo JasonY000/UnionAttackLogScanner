@@ -11,7 +11,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({extended: true}));
 app.use('/scan', scanRoute);
 
 if (process.env.NODE_ENV === 'production') {
@@ -29,7 +29,7 @@ app.get('/images', async (req, res) => {
     return res.json(imageFiles);
   } catch (error) {
     console.error('Error reading folder:', error);
-    res.status(500).json({ error: 'An error occurred' });
+    res.status(500).json({error: 'An error occurred'});
   }
 });
 app.get('/api/test', async (req, res) => {
@@ -42,7 +42,7 @@ app.get('/api/test', async (req, res) => {
     return res.json(imageFiles);
   } catch (error) {
     console.error('Error reading folder:', error);
-    res.status(500).json({ error: 'An error occurred' });
+    res.status(500).json({error: 'An error occurred'});
   }
 });
 app.get('/', (req, res) => {
@@ -53,13 +53,10 @@ app.use((err, req, res, next) => {
   const defaultErr = {
     log: 'Express error handler caught unknown middleware error',
     status: 500,
-    message: { err: 'An error occurred' },
+    message: {err: 'An error occurred'},
   };
   const errorObj = Object.assign({}, defaultErr, err);
   return res.status(errorObj.status).json(errorObj.message);
 });
-// app.listen(process.env.PORT, () => {
-//   console.log(`Server is running on port ${process.env.PORT}`);
-// });
 
 module.exports = app;

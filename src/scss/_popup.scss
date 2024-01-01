@@ -211,7 +211,18 @@
 }
 
 .attRow {
+  width: auto;
+  h2 {
+    text-decoration: underline;
+  }
   ul {
     text-align: left;
+    width: auto;
+    max-height: 400px;
+    display: flex;
+    flex-direction: column;
+    li {
+      margin-right: 100px;
+    }
   }
 }

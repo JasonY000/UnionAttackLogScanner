@@ -42,8 +42,6 @@ function onlyNames(text) {
   const numberText = /^\d+$/;
   const result = [];
   textArr.forEach((element, i) => {
-    //console.log(element);
-    // if (numberText.test(element) === true) textArr[i] = parseFloat(element);
     if (
       !filterReg2.test(element) &&
       element.length > 2 &&
