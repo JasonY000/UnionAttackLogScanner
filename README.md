@@ -25,7 +25,7 @@ npm run dev
 On your browser, localhost:8080 should appear, and you are now running our application!<br>Next you would take screenshots of the union damage logs.
 
 Below is a example of the image: **(make sure the image is cropped just like below!)** <br>
-<img src="./__test__/testImage/image_1.jpg" width="300px"/><br>
+<img src="./__test__/testImage/new_test_img.jpg" width="300px"/><br>
 
 After, go to the website and click 'Get Started'.</br>
 <img src="public/demogif.gif">
